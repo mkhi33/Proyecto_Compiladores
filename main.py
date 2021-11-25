@@ -7,4 +7,4 @@ import sys
 
 from nucleo.testAnalizadorLexico import *
 
-test()
+test() 
