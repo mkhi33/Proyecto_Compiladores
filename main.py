@@ -1,10 +1,24 @@
-import nucleo.ply.ply.lex as lex;
-import re
-import codecs
-import os
-import sys
+# Importando los modulos de la libreria ply
+import ply.lex as lex
+import ply.yacc as yacc
+
+# importando nuestro analizador lexico 
+from nucleo.analizadorLexico import *
+
+#Construcción del analizador lexico
+lexer = lex.lex()
+
+# Importando nuestro analizador sintactico
+from nucleo.analizadorSintactico import *
+parser = yacc.yacc()
 
 
-from nucleo.testAnalizadorLexico import *
+# Obteniendo el contenido desde nustro archivo de entrada
 
-test() 
+archivo = open('./test/prueba1.txt')
+contenido = archivo.read()
+archivo.close()
+
+print(contenido)
+
+parser.parse(contenido)

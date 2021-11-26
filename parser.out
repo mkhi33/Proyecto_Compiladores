@@ -1,0 +1,588 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> instrucciones
+Rule 1     instrucciones -> instruccion instrucciones
+Rule 2     instrucciones -> instruccion
+Rule 3     instruccion -> OPERAR ACOR expresion CCOR FINAL
+Rule 4     instruccion -> expresion
+Rule 5     expresion -> expresion SUM expresion
+Rule 6     expresion -> expresion RES expresion
+Rule 7     expresion -> expresion MULT expresion
+Rule 8     expresion -> expresion DIV expresion
+Rule 9     expresion -> expresion POT expresion
+Rule 10    expresion -> RES expresion
+Rule 11    expresion -> APARENT expresion CPARENT
+Rule 12    expresion -> NUMERO
+Rule 13    expresion -> DECIMAL
+
+Terminals, with rules where they appear
+
+ACOR                 : 3
+APARENT              : 11
+CCOR                 : 3
+CPARENT              : 11
+DECIMAL              : 13
+DIV                  : 8
+FINAL                : 3
+MULT                 : 7
+NUMERO               : 12
+OPERAR               : 3
+POT                  : 9
+RES                  : 6 10
+SUM                  : 5
+error                : 
+
+Nonterminals, with rules where they appear
+
+expresion            : 3 4 5 5 6 6 7 7 8 8 9 9 10 11
+instruccion          : 1 2
+instrucciones        : 1 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . instrucciones
+    (1) instrucciones -> . instruccion instrucciones
+    (2) instrucciones -> . instruccion
+    (3) instruccion -> . OPERAR ACOR expresion CCOR FINAL
+    (4) instruccion -> . expresion
+    (5) expresion -> . expresion SUM expresion
+    (6) expresion -> . expresion RES expresion
+    (7) expresion -> . expresion MULT expresion
+    (8) expresion -> . expresion DIV expresion
+    (9) expresion -> . expresion POT expresion
+    (10) expresion -> . RES expresion
+    (11) expresion -> . APARENT expresion CPARENT
+    (12) expresion -> . NUMERO
+    (13) expresion -> . DECIMAL
+
+    OPERAR          shift and go to state 3
+    RES             shift and go to state 5
+    APARENT         shift and go to state 6
+    NUMERO          shift and go to state 7
+    DECIMAL         shift and go to state 8
+
+    instrucciones                  shift and go to state 1
+    instruccion                    shift and go to state 2
+    expresion                      shift and go to state 4
+
+state 1
+
+    (0) S' -> instrucciones .
+
+
+
+state 2
+
+    (1) instrucciones -> instruccion . instrucciones
+    (2) instrucciones -> instruccion .
+    (1) instrucciones -> . instruccion instrucciones
+    (2) instrucciones -> . instruccion
+    (3) instruccion -> . OPERAR ACOR expresion CCOR FINAL
+    (4) instruccion -> . expresion
+    (5) expresion -> . expresion SUM expresion
+    (6) expresion -> . expresion RES expresion
+    (7) expresion -> . expresion MULT expresion
+    (8) expresion -> . expresion DIV expresion
+    (9) expresion -> . expresion POT expresion
+    (10) expresion -> . RES expresion
+    (11) expresion -> . APARENT expresion CPARENT
+    (12) expresion -> . NUMERO
+    (13) expresion -> . DECIMAL
+
+    $end            reduce using rule 2 (instrucciones -> instruccion .)
+    OPERAR          shift and go to state 3
+    RES             shift and go to state 5
+    APARENT         shift and go to state 6
+    NUMERO          shift and go to state 7
+    DECIMAL         shift and go to state 8
+
+    instruccion                    shift and go to state 2
+    instrucciones                  shift and go to state 9
+    expresion                      shift and go to state 4
+
+state 3
+
+    (3) instruccion -> OPERAR . ACOR expresion CCOR FINAL
+
+    ACOR            shift and go to state 10
+
+
+state 4
+
+    (4) instruccion -> expresion .
+    (5) expresion -> expresion . SUM expresion
+    (6) expresion -> expresion . RES expresion
+    (7) expresion -> expresion . MULT expresion
+    (8) expresion -> expresion . DIV expresion
+    (9) expresion -> expresion . POT expresion
+
+  ! shift/reduce conflict for RES resolved as shift
+    OPERAR          reduce using rule 4 (instruccion -> expresion .)
+    APARENT         reduce using rule 4 (instruccion -> expresion .)
+    NUMERO          reduce using rule 4 (instruccion -> expresion .)
+    DECIMAL         reduce using rule 4 (instruccion -> expresion .)
+    $end            reduce using rule 4 (instruccion -> expresion .)
+    SUM             shift and go to state 11
+    RES             shift and go to state 12
+    MULT            shift and go to state 13
+    DIV             shift and go to state 14
+    POT             shift and go to state 15
+
+  ! RES             [ reduce using rule 4 (instruccion -> expresion .) ]
+
+
+state 5
+
+    (10) expresion -> RES . expresion
+    (5) expresion -> . expresion SUM expresion
+    (6) expresion -> . expresion RES expresion
+    (7) expresion -> . expresion MULT expresion
+    (8) expresion -> . expresion DIV expresion
+    (9) expresion -> . expresion POT expresion
+    (10) expresion -> . RES expresion
+    (11) expresion -> . APARENT expresion CPARENT
+    (12) expresion -> . NUMERO
+    (13) expresion -> . DECIMAL
+
+    RES             shift and go to state 5
+    APARENT         shift and go to state 6
+    NUMERO          shift and go to state 7
+    DECIMAL         shift and go to state 8
+
+    expresion                      shift and go to state 16
+
+state 6
+
+    (11) expresion -> APARENT . expresion CPARENT
+    (5) expresion -> . expresion SUM expresion
+    (6) expresion -> . expresion RES expresion
+    (7) expresion -> . expresion MULT expresion
+    (8) expresion -> . expresion DIV expresion
+    (9) expresion -> . expresion POT expresion
+    (10) expresion -> . RES expresion
+    (11) expresion -> . APARENT expresion CPARENT
+    (12) expresion -> . NUMERO
+    (13) expresion -> . DECIMAL
+
+    RES             shift and go to state 5
+    APARENT         shift and go to state 6
+    NUMERO          shift and go to state 7
+    DECIMAL         shift and go to state 8
+
+    expresion                      shift and go to state 17
+
+state 7
+
+    (12) expresion -> NUMERO .
+
+    SUM             reduce using rule 12 (expresion -> NUMERO .)
+    RES             reduce using rule 12 (expresion -> NUMERO .)
+    MULT            reduce using rule 12 (expresion -> NUMERO .)
+    DIV             reduce using rule 12 (expresion -> NUMERO .)
+    POT             reduce using rule 12 (expresion -> NUMERO .)
+    OPERAR          reduce using rule 12 (expresion -> NUMERO .)
+    APARENT         reduce using rule 12 (expresion -> NUMERO .)
+    NUMERO          reduce using rule 12 (expresion -> NUMERO .)
+    DECIMAL         reduce using rule 12 (expresion -> NUMERO .)
+    $end            reduce using rule 12 (expresion -> NUMERO .)
+    CPARENT         reduce using rule 12 (expresion -> NUMERO .)
+    CCOR            reduce using rule 12 (expresion -> NUMERO .)
+
+
+state 8
+
+    (13) expresion -> DECIMAL .
+
+    SUM             reduce using rule 13 (expresion -> DECIMAL .)
+    RES             reduce using rule 13 (expresion -> DECIMAL .)
+    MULT            reduce using rule 13 (expresion -> DECIMAL .)
+    DIV             reduce using rule 13 (expresion -> DECIMAL .)
+    POT             reduce using rule 13 (expresion -> DECIMAL .)
+    OPERAR          reduce using rule 13 (expresion -> DECIMAL .)
+    APARENT         reduce using rule 13 (expresion -> DECIMAL .)
+    NUMERO          reduce using rule 13 (expresion -> DECIMAL .)
+    DECIMAL         reduce using rule 13 (expresion -> DECIMAL .)
+    $end            reduce using rule 13 (expresion -> DECIMAL .)
+    CPARENT         reduce using rule 13 (expresion -> DECIMAL .)
+    CCOR            reduce using rule 13 (expresion -> DECIMAL .)
+
+
+state 9
+
+    (1) instrucciones -> instruccion instrucciones .
+
+    $end            reduce using rule 1 (instrucciones -> instruccion instrucciones .)
+
+
+state 10
+
+    (3) instruccion -> OPERAR ACOR . expresion CCOR FINAL
+    (5) expresion -> . expresion SUM expresion
+    (6) expresion -> . expresion RES expresion
+    (7) expresion -> . expresion MULT expresion
+    (8) expresion -> . expresion DIV expresion
+    (9) expresion -> . expresion POT expresion
+    (10) expresion -> . RES expresion
+    (11) expresion -> . APARENT expresion CPARENT
+    (12) expresion -> . NUMERO
+    (13) expresion -> . DECIMAL
+
+    RES             shift and go to state 5
+    APARENT         shift and go to state 6
+    NUMERO          shift and go to state 7
+    DECIMAL         shift and go to state 8
+
+    expresion                      shift and go to state 18
+
+state 11
+
+    (5) expresion -> expresion SUM . expresion
+    (5) expresion -> . expresion SUM expresion
+    (6) expresion -> . expresion RES expresion
+    (7) expresion -> . expresion MULT expresion
+    (8) expresion -> . expresion DIV expresion
+    (9) expresion -> . expresion POT expresion
+    (10) expresion -> . RES expresion
+    (11) expresion -> . APARENT expresion CPARENT
+    (12) expresion -> . NUMERO
+    (13) expresion -> . DECIMAL
+
+    RES             shift and go to state 5
+    APARENT         shift and go to state 6
+    NUMERO          shift and go to state 7
+    DECIMAL         shift and go to state 8
+
+    expresion                      shift and go to state 19
+
+state 12
+
+    (6) expresion -> expresion RES . expresion
+    (5) expresion -> . expresion SUM expresion
+    (6) expresion -> . expresion RES expresion
+    (7) expresion -> . expresion MULT expresion
+    (8) expresion -> . expresion DIV expresion
+    (9) expresion -> . expresion POT expresion
+    (10) expresion -> . RES expresion
+    (11) expresion -> . APARENT expresion CPARENT
+    (12) expresion -> . NUMERO
+    (13) expresion -> . DECIMAL
+
+    RES             shift and go to state 5
+    APARENT         shift and go to state 6
+    NUMERO          shift and go to state 7
+    DECIMAL         shift and go to state 8
+
+    expresion                      shift and go to state 20
+
+state 13
+
+    (7) expresion -> expresion MULT . expresion
+    (5) expresion -> . expresion SUM expresion
+    (6) expresion -> . expresion RES expresion
+    (7) expresion -> . expresion MULT expresion
+    (8) expresion -> . expresion DIV expresion
+    (9) expresion -> . expresion POT expresion
+    (10) expresion -> . RES expresion
+    (11) expresion -> . APARENT expresion CPARENT
+    (12) expresion -> . NUMERO
+    (13) expresion -> . DECIMAL
+
+    RES             shift and go to state 5
+    APARENT         shift and go to state 6
+    NUMERO          shift and go to state 7
+    DECIMAL         shift and go to state 8
+
+    expresion                      shift and go to state 21
+
+state 14
+
+    (8) expresion -> expresion DIV . expresion
+    (5) expresion -> . expresion SUM expresion
+    (6) expresion -> . expresion RES expresion
+    (7) expresion -> . expresion MULT expresion
+    (8) expresion -> . expresion DIV expresion
+    (9) expresion -> . expresion POT expresion
+    (10) expresion -> . RES expresion
+    (11) expresion -> . APARENT expresion CPARENT
+    (12) expresion -> . NUMERO
+    (13) expresion -> . DECIMAL
+
+    RES             shift and go to state 5
+    APARENT         shift and go to state 6
+    NUMERO          shift and go to state 7
+    DECIMAL         shift and go to state 8
+
+    expresion                      shift and go to state 22
+
+state 15
+
+    (9) expresion -> expresion POT . expresion
+    (5) expresion -> . expresion SUM expresion
+    (6) expresion -> . expresion RES expresion
+    (7) expresion -> . expresion MULT expresion
+    (8) expresion -> . expresion DIV expresion
+    (9) expresion -> . expresion POT expresion
+    (10) expresion -> . RES expresion
+    (11) expresion -> . APARENT expresion CPARENT
+    (12) expresion -> . NUMERO
+    (13) expresion -> . DECIMAL
+
+    RES             shift and go to state 5
+    APARENT         shift and go to state 6
+    NUMERO          shift and go to state 7
+    DECIMAL         shift and go to state 8
+
+    expresion                      shift and go to state 23
+
+state 16
+
+    (10) expresion -> RES expresion .
+    (5) expresion -> expresion . SUM expresion
+    (6) expresion -> expresion . RES expresion
+    (7) expresion -> expresion . MULT expresion
+    (8) expresion -> expresion . DIV expresion
+    (9) expresion -> expresion . POT expresion
+
+    SUM             reduce using rule 10 (expresion -> RES expresion .)
+    RES             reduce using rule 10 (expresion -> RES expresion .)
+    MULT            reduce using rule 10 (expresion -> RES expresion .)
+    DIV             reduce using rule 10 (expresion -> RES expresion .)
+    POT             reduce using rule 10 (expresion -> RES expresion .)
+    OPERAR          reduce using rule 10 (expresion -> RES expresion .)
+    APARENT         reduce using rule 10 (expresion -> RES expresion .)
+    NUMERO          reduce using rule 10 (expresion -> RES expresion .)
+    DECIMAL         reduce using rule 10 (expresion -> RES expresion .)
+    $end            reduce using rule 10 (expresion -> RES expresion .)
+    CPARENT         reduce using rule 10 (expresion -> RES expresion .)
+    CCOR            reduce using rule 10 (expresion -> RES expresion .)
+
+  ! SUM             [ shift and go to state 11 ]
+  ! RES             [ shift and go to state 12 ]
+  ! MULT            [ shift and go to state 13 ]
+  ! DIV             [ shift and go to state 14 ]
+  ! POT             [ shift and go to state 15 ]
+
+
+state 17
+
+    (11) expresion -> APARENT expresion . CPARENT
+    (5) expresion -> expresion . SUM expresion
+    (6) expresion -> expresion . RES expresion
+    (7) expresion -> expresion . MULT expresion
+    (8) expresion -> expresion . DIV expresion
+    (9) expresion -> expresion . POT expresion
+
+    CPARENT         shift and go to state 24
+    SUM             shift and go to state 11
+    RES             shift and go to state 12
+    MULT            shift and go to state 13
+    DIV             shift and go to state 14
+    POT             shift and go to state 15
+
+
+state 18
+
+    (3) instruccion -> OPERAR ACOR expresion . CCOR FINAL
+    (5) expresion -> expresion . SUM expresion
+    (6) expresion -> expresion . RES expresion
+    (7) expresion -> expresion . MULT expresion
+    (8) expresion -> expresion . DIV expresion
+    (9) expresion -> expresion . POT expresion
+
+    CCOR            shift and go to state 25
+    SUM             shift and go to state 11
+    RES             shift and go to state 12
+    MULT            shift and go to state 13
+    DIV             shift and go to state 14
+    POT             shift and go to state 15
+
+
+state 19
+
+    (5) expresion -> expresion SUM expresion .
+    (5) expresion -> expresion . SUM expresion
+    (6) expresion -> expresion . RES expresion
+    (7) expresion -> expresion . MULT expresion
+    (8) expresion -> expresion . DIV expresion
+    (9) expresion -> expresion . POT expresion
+
+    SUM             reduce using rule 5 (expresion -> expresion SUM expresion .)
+    RES             reduce using rule 5 (expresion -> expresion SUM expresion .)
+    OPERAR          reduce using rule 5 (expresion -> expresion SUM expresion .)
+    APARENT         reduce using rule 5 (expresion -> expresion SUM expresion .)
+    NUMERO          reduce using rule 5 (expresion -> expresion SUM expresion .)
+    DECIMAL         reduce using rule 5 (expresion -> expresion SUM expresion .)
+    $end            reduce using rule 5 (expresion -> expresion SUM expresion .)
+    CPARENT         reduce using rule 5 (expresion -> expresion SUM expresion .)
+    CCOR            reduce using rule 5 (expresion -> expresion SUM expresion .)
+    MULT            shift and go to state 13
+    DIV             shift and go to state 14
+    POT             shift and go to state 15
+
+  ! MULT            [ reduce using rule 5 (expresion -> expresion SUM expresion .) ]
+  ! DIV             [ reduce using rule 5 (expresion -> expresion SUM expresion .) ]
+  ! POT             [ reduce using rule 5 (expresion -> expresion SUM expresion .) ]
+  ! SUM             [ shift and go to state 11 ]
+  ! RES             [ shift and go to state 12 ]
+
+
+state 20
+
+    (6) expresion -> expresion RES expresion .
+    (5) expresion -> expresion . SUM expresion
+    (6) expresion -> expresion . RES expresion
+    (7) expresion -> expresion . MULT expresion
+    (8) expresion -> expresion . DIV expresion
+    (9) expresion -> expresion . POT expresion
+
+    SUM             reduce using rule 6 (expresion -> expresion RES expresion .)
+    RES             reduce using rule 6 (expresion -> expresion RES expresion .)
+    OPERAR          reduce using rule 6 (expresion -> expresion RES expresion .)
+    APARENT         reduce using rule 6 (expresion -> expresion RES expresion .)
+    NUMERO          reduce using rule 6 (expresion -> expresion RES expresion .)
+    DECIMAL         reduce using rule 6 (expresion -> expresion RES expresion .)
+    $end            reduce using rule 6 (expresion -> expresion RES expresion .)
+    CPARENT         reduce using rule 6 (expresion -> expresion RES expresion .)
+    CCOR            reduce using rule 6 (expresion -> expresion RES expresion .)
+    MULT            shift and go to state 13
+    DIV             shift and go to state 14
+    POT             shift and go to state 15
+
+  ! MULT            [ reduce using rule 6 (expresion -> expresion RES expresion .) ]
+  ! DIV             [ reduce using rule 6 (expresion -> expresion RES expresion .) ]
+  ! POT             [ reduce using rule 6 (expresion -> expresion RES expresion .) ]
+  ! SUM             [ shift and go to state 11 ]
+  ! RES             [ shift and go to state 12 ]
+
+
+state 21
+
+    (7) expresion -> expresion MULT expresion .
+    (5) expresion -> expresion . SUM expresion
+    (6) expresion -> expresion . RES expresion
+    (7) expresion -> expresion . MULT expresion
+    (8) expresion -> expresion . DIV expresion
+    (9) expresion -> expresion . POT expresion
+
+    SUM             reduce using rule 7 (expresion -> expresion MULT expresion .)
+    RES             reduce using rule 7 (expresion -> expresion MULT expresion .)
+    MULT            reduce using rule 7 (expresion -> expresion MULT expresion .)
+    DIV             reduce using rule 7 (expresion -> expresion MULT expresion .)
+    POT             reduce using rule 7 (expresion -> expresion MULT expresion .)
+    OPERAR          reduce using rule 7 (expresion -> expresion MULT expresion .)
+    APARENT         reduce using rule 7 (expresion -> expresion MULT expresion .)
+    NUMERO          reduce using rule 7 (expresion -> expresion MULT expresion .)
+    DECIMAL         reduce using rule 7 (expresion -> expresion MULT expresion .)
+    $end            reduce using rule 7 (expresion -> expresion MULT expresion .)
+    CPARENT         reduce using rule 7 (expresion -> expresion MULT expresion .)
+    CCOR            reduce using rule 7 (expresion -> expresion MULT expresion .)
+
+  ! SUM             [ shift and go to state 11 ]
+  ! RES             [ shift and go to state 12 ]
+  ! MULT            [ shift and go to state 13 ]
+  ! DIV             [ shift and go to state 14 ]
+  ! POT             [ shift and go to state 15 ]
+
+
+state 22
+
+    (8) expresion -> expresion DIV expresion .
+    (5) expresion -> expresion . SUM expresion
+    (6) expresion -> expresion . RES expresion
+    (7) expresion -> expresion . MULT expresion
+    (8) expresion -> expresion . DIV expresion
+    (9) expresion -> expresion . POT expresion
+
+    SUM             reduce using rule 8 (expresion -> expresion DIV expresion .)
+    RES             reduce using rule 8 (expresion -> expresion DIV expresion .)
+    MULT            reduce using rule 8 (expresion -> expresion DIV expresion .)
+    DIV             reduce using rule 8 (expresion -> expresion DIV expresion .)
+    POT             reduce using rule 8 (expresion -> expresion DIV expresion .)
+    OPERAR          reduce using rule 8 (expresion -> expresion DIV expresion .)
+    APARENT         reduce using rule 8 (expresion -> expresion DIV expresion .)
+    NUMERO          reduce using rule 8 (expresion -> expresion DIV expresion .)
+    DECIMAL         reduce using rule 8 (expresion -> expresion DIV expresion .)
+    $end            reduce using rule 8 (expresion -> expresion DIV expresion .)
+    CPARENT         reduce using rule 8 (expresion -> expresion DIV expresion .)
+    CCOR            reduce using rule 8 (expresion -> expresion DIV expresion .)
+
+  ! SUM             [ shift and go to state 11 ]
+  ! RES             [ shift and go to state 12 ]
+  ! MULT            [ shift and go to state 13 ]
+  ! DIV             [ shift and go to state 14 ]
+  ! POT             [ shift and go to state 15 ]
+
+
+state 23
+
+    (9) expresion -> expresion POT expresion .
+    (5) expresion -> expresion . SUM expresion
+    (6) expresion -> expresion . RES expresion
+    (7) expresion -> expresion . MULT expresion
+    (8) expresion -> expresion . DIV expresion
+    (9) expresion -> expresion . POT expresion
+
+    SUM             reduce using rule 9 (expresion -> expresion POT expresion .)
+    RES             reduce using rule 9 (expresion -> expresion POT expresion .)
+    MULT            reduce using rule 9 (expresion -> expresion POT expresion .)
+    DIV             reduce using rule 9 (expresion -> expresion POT expresion .)
+    POT             reduce using rule 9 (expresion -> expresion POT expresion .)
+    OPERAR          reduce using rule 9 (expresion -> expresion POT expresion .)
+    APARENT         reduce using rule 9 (expresion -> expresion POT expresion .)
+    NUMERO          reduce using rule 9 (expresion -> expresion POT expresion .)
+    DECIMAL         reduce using rule 9 (expresion -> expresion POT expresion .)
+    $end            reduce using rule 9 (expresion -> expresion POT expresion .)
+    CPARENT         reduce using rule 9 (expresion -> expresion POT expresion .)
+    CCOR            reduce using rule 9 (expresion -> expresion POT expresion .)
+
+  ! SUM             [ shift and go to state 11 ]
+  ! RES             [ shift and go to state 12 ]
+  ! MULT            [ shift and go to state 13 ]
+  ! DIV             [ shift and go to state 14 ]
+  ! POT             [ shift and go to state 15 ]
+
+
+state 24
+
+    (11) expresion -> APARENT expresion CPARENT .
+
+    SUM             reduce using rule 11 (expresion -> APARENT expresion CPARENT .)
+    RES             reduce using rule 11 (expresion -> APARENT expresion CPARENT .)
+    MULT            reduce using rule 11 (expresion -> APARENT expresion CPARENT .)
+    DIV             reduce using rule 11 (expresion -> APARENT expresion CPARENT .)
+    POT             reduce using rule 11 (expresion -> APARENT expresion CPARENT .)
+    OPERAR          reduce using rule 11 (expresion -> APARENT expresion CPARENT .)
+    APARENT         reduce using rule 11 (expresion -> APARENT expresion CPARENT .)
+    NUMERO          reduce using rule 11 (expresion -> APARENT expresion CPARENT .)
+    DECIMAL         reduce using rule 11 (expresion -> APARENT expresion CPARENT .)
+    $end            reduce using rule 11 (expresion -> APARENT expresion CPARENT .)
+    CPARENT         reduce using rule 11 (expresion -> APARENT expresion CPARENT .)
+    CCOR            reduce using rule 11 (expresion -> APARENT expresion CPARENT .)
+
+
+state 25
+
+    (3) instruccion -> OPERAR ACOR expresion CCOR . FINAL
+
+    FINAL           shift and go to state 26
+
+
+state 26
+
+    (3) instruccion -> OPERAR ACOR expresion CCOR FINAL .
+
+    OPERAR          reduce using rule 3 (instruccion -> OPERAR ACOR expresion CCOR FINAL .)
+    RES             reduce using rule 3 (instruccion -> OPERAR ACOR expresion CCOR FINAL .)
+    APARENT         reduce using rule 3 (instruccion -> OPERAR ACOR expresion CCOR FINAL .)
+    NUMERO          reduce using rule 3 (instruccion -> OPERAR ACOR expresion CCOR FINAL .)
+    DECIMAL         reduce using rule 3 (instruccion -> OPERAR ACOR expresion CCOR FINAL .)
+    $end            reduce using rule 3 (instruccion -> OPERAR ACOR expresion CCOR FINAL .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for RES in state 4 resolved as shift
