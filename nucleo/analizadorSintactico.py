@@ -8,15 +8,20 @@ precedence = (
     ('left', 'ACOR', 'CCOR')
 )
 
-nombres = {}
+nombres = {
+    "instrucciones": []
+}
+
 
 def p_instrucciones_lista(t):
     '''instrucciones    : instruccion instrucciones
                         | instruccion '''   
 
+
 def p_instrucciones_operar(t):
     'instruccion : OPERAR ACOR expresion CCOR FINAL'
-    nombres[t[1]] = t[3]
+    #nombres[t[1]] = t[3]
+
     print('El resultado de la expresión es: ' + str(t[3]))
 
 def p_instrucciones_expr(t):
@@ -44,6 +49,7 @@ def p_expresion_unaria(t):
 def p_expresion_agrupacion(t):
     'expresion : APARENT expresion CPARENT'
     t[0] = t[2]
+
 
 def p_expresion_number(t):
     '''expresion    : NUMERO
