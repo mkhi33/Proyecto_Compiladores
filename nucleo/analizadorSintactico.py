@@ -8,10 +8,8 @@ precedence = (
     ('left', 'ACOR', 'CCOR')
 )
 
-nombres = {
-    "instrucciones": []
-}
-
+resultados = []
+operacion = {}
 
 def p_instrucciones_lista(t):
     '''instrucciones    : instruccion instrucciones
@@ -20,7 +18,8 @@ def p_instrucciones_lista(t):
 
 def p_instrucciones_operar(t):
     'instruccion : OPERAR ACOR expresion CCOR FINAL'
-    #nombres[t[1]] = t[3]
+    resultados.append([t[3]])
+    operacion[t[1]] = t[3]
 
     print('El resultado de la expresión es: ' + str(t[3]))
 

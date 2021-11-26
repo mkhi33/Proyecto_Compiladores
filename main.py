@@ -2,7 +2,9 @@
 import ply.lex as lex
 import ply.yacc as yacc
 import codecs
+
 from nucleo.generSalida import Generador
+from nucleo.administradorArchivos import Administrador
 
 # importando nuestro analizador lexico 
 from nucleo.analizadorLexico import *
@@ -29,18 +31,27 @@ def run():
     fp.close()
     parser.parse(cadena)
 
-    """
+
 
     lexer.input(cadena)
     listaTokens = []
 
+    """
     while True:
         token = lexer.token()
         if not token: break
         listaTokens.append(token)
     return listaTokens, cadena
-    """   
+    """
 
 
-g = Generador()
+"""
 run()
+"""
+
+run()
+admin = Administrador('test/prueba1.txt')
+cadena = admin.obtenerContenido()
+g = Generador(lexer, cadena, resultados)
+
+print(g.dibujarTabla())
