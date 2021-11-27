@@ -36,8 +36,8 @@ _lr_productions = [
   ('expresion -> expresion MULT expresion','expresion',3,'p_expresion_binaria','analizadorSintactico.py',33),
   ('expresion -> expresion DIV expresion','expresion',3,'p_expresion_binaria','analizadorSintactico.py',34),
   ('expresion -> expresion POT expresion','expresion',3,'p_expresion_binaria','analizadorSintactico.py',35),
-  ('expresion -> RES expresion','expresion',2,'p_expresion_unaria','analizadorSintactico.py',50),
-  ('expresion -> APARENT expresion CPARENT','expresion',3,'p_expresion_agrupacion','analizadorSintactico.py',54),
-  ('expresion -> NUMERO','expresion',1,'p_expresion_number','analizadorSintactico.py',59),
-  ('expresion -> DECIMAL','expresion',1,'p_expresion_number','analizadorSintactico.py',60),
+  ('expresion -> RES expresion','expresion',2,'p_expresion_unaria','analizadorSintactico.py',45),
+  ('expresion -> APARENT expresion CPARENT','expresion',3,'p_expresion_agrupacion','analizadorSintactico.py',49),
+  ('expresion -> NUMERO','expresion',1,'p_expresion_number','analizadorSintactico.py',54),
+  ('expresion -> DECIMAL','expresion',1,'p_expresion_number','analizadorSintactico.py',55),
 ]

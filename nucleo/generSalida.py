@@ -61,23 +61,27 @@ class Generador:
         
 
     def dibujarTabla(self):
-        tablas , res = self.obtenerTablas()
-        contenido ="\n*********************\n Analizador Léxico\n *********************\n"
+        try:
 
-        for tabla in tablas:
-            contenido += "\n%s\n"%(tabla.getTable())
+            tablas , res = self.obtenerTablas()
+            contenido ="\n*********************\n Analizador Léxico\n *********************\n"
 
-
-        # Mostrando las respuestas
-
-        contenido += res
+            for tabla in tablas:
+                contenido += "\n%s\n"%(tabla.getTable())
 
 
-        archivo = open('salida.txt', "w")
-        archivo.write(contenido)
-        archivo.close()
+            # Mostrando las respuestas
+
+            contenido += res
 
 
+            archivo = open('salida.txt', "w")
+            archivo.write(contenido)
+            archivo.close()
+            return contenido
+
+        except:
+            print("No se pudo generar la tabla")
 
 
         

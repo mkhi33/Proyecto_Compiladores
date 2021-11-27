@@ -33,12 +33,17 @@ def p_expresion_binaria(t):
                   | expresion MULT expresion
                   | expresion DIV expresion
                   | expresion POT expresion'''
-    if t[2] == '+'  : t[0] = t[1] + t[3]
-    elif t[2] == '-': t[0] = t[1] - t[3]
-    elif t[2] == '*': t[0] = t[1] * t[3]
-    elif t[2] == '/': t[0] = t[1] / t[3]
-    elif t[2] == '^': t[0] = pow(t[1] , t[3])
 
+
+    try:
+        if t[2] == '+'  : t[0] = t[1] + t[3]
+        elif t[2] == '-': t[0] = t[1] - t[3]
+        elif t[2] == '*': t[0] = t[1] * t[3]
+        elif t[2] == '/': t[0] = t[1] / t[3]
+        elif t[2] == '^': t[0] = pow(t[1] , t[3])
+    except ZeroDivisionError:
+        error = "Error, División por cero"
+        print(error)
 
 
 def p_expresion_unaria(t):
