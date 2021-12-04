@@ -61,4 +61,6 @@ def p_expresion_number(t):
     t[0] = t[1]
 
 def p_error(t):
+    operacion["OPERAR"] = 0
+
     print("Error sintáctico en '%s'" % t.value)

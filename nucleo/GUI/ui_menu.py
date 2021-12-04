@@ -45,6 +45,8 @@ class GUIMenu(QMainWindow):
         self.uiDialogo = GUIDialogo()
 
 
+        self.limpiarPantalla = False
+
         # Eventos de botones
 
         self.uiMenu.btnAcercaDe.clicked.connect(self.mostrarAcercaDe)
@@ -118,6 +120,10 @@ class GUIMenu(QMainWindow):
         self.uiCalculadora.uiCalculadora.lblEntrada.setText(nuevoValor)
 
     def calcular(self):
+
+        if self.limpiarPantalla :
+            self.uiCalculadora.uiCalculadora.lcdEntrada.setProperty("value", 0.0)
+            self.limpiarPantalla = False
         try:
             expresion = "OPERAR[%s]$"%(self.uiCalculadora.uiCalculadora.lblEntrada.text())
             parser.parse(expresion)
@@ -126,8 +132,9 @@ class GUIMenu(QMainWindow):
                 if(resultado):
                     self.cadena += "%s\n"%expresion
                     self.uiCalculadora.uiCalculadora.lcdEntrada.setProperty("value", float(resultado))
+                    self.limpiarPantalla = True
         except:
-            pass
+            print("Ocurrio un error")
 
     def dibujarTabla(self, cadena = None):
         if not cadena: cadena = self.cadena
